@@ -181,6 +181,7 @@ def build_cmdstan_model(target_dir):
     prune_cmdstan(cmdstan_dir)
 
 
+'''
 def build_pystan_model(target_dir):
     """
     Compile the stan model using pystan and pickle it. The pickle is copied to {target_dir}/prophet_model.pkl.
@@ -194,7 +195,7 @@ def build_pystan_model(target_dir):
     sm = pystan.StanModel(model_code=model_code)
     with open(os.path.join(target_dir, target_name), "wb") as f:
         pickle.dump(sm, f, protocol=pickle.HIGHEST_PROTOCOL)
-
+'''
 
 def get_backends_from_env() -> List[str]:
     return os.environ.get("STAN_BACKEND", "PYSTAN").split(",")
@@ -205,8 +206,8 @@ def build_models(target_dir):
         print(f"Compiling {backend} model")
         if backend == "CMDSTANPY":
             build_cmdstan_model(target_dir)
-        elif backend == "PYSTAN":
-            build_pystan_model(target_dir)
+        # elif backend == "PYSTAN":
+        #    build_pystan_model(target_dir)
 
 
 class BuildPyCommand(build_py):
@@ -328,6 +329,7 @@ setup(
         "Programming Language :: Python :: 3",
         "Programming Language :: Python :: 3.7",
         "Programming Language :: Python :: 3.8",
+        "Programming Language :: Python :: 3.9"
     ],
     long_description=long_description,
     long_description_content_type="text/markdown",

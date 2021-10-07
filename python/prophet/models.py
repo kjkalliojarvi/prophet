@@ -217,6 +217,7 @@ class CmdStanPyBackend(IStanBackend):
         return output
 
 
+'''
 class PyStanBackend(IStanBackend):
 
     @staticmethod
@@ -277,10 +278,10 @@ class PyStanBackend(IStanBackend):
         )
         with Path(model_file).open('rb') as f:
             return pickle.load(f)
-
+'''
 
 class StanBackendEnum(Enum):
-    PYSTAN = PyStanBackend
+    # PYSTAN = PyStanBackend
     CMDSTANPY = CmdStanPyBackend
 
     @staticmethod
