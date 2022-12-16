@@ -32,7 +32,7 @@ jobs:
       - name: "Restore RTools40"
         if: startsWith(runner.os, 'Windows')
         id: cache-rtools
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           path: C:/rtools40
           key: ${{ runner.os }}-${{ env.OS_VERSION }}-rtools-v1
