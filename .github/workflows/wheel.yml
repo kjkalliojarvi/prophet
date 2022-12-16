@@ -15,8 +15,8 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: ["macos-latest", "ubuntu-latest", "windows-latest"]
-        cibw_arch: ["native", "aarch64"]
+        os: ["macos-latest", "ubuntu-latest"]
+        cibw_arch: ["native"]
         py_version: ["cp311-*"]
         exclude:
           - os: macos-latest
